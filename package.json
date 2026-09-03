@@ -1,0 +1,19 @@
+{
+  "name": "nz-interview-coach",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NZ向け面接練習アプリ（Cloudflare Workers + Workers AI + D1）",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:init": "wrangler d1 execute nz-interview-coach-db --remote --file=./db/schema.sql",
+    "db:seed": "wrangler d1 execute nz-interview-coach-db --remote --file=./db/seed.sql",
+    "db:init:local": "wrangler d1 execute nz-interview-coach-db --local --file=./db/schema.sql",
+    "db:seed:local": "wrangler d1 execute nz-interview-coach-db --local --file=./db/seed.sql",
+    "secret:password": "wrangler secret put APP_PASSWORD",
+    "secret:session": "wrangler secret put SESSION_SECRET"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
